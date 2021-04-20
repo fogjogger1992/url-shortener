@@ -1,12 +1,16 @@
-// express
+// include packages and define server related variables
 const express = require('express')
+const exphbs = require('express-handlebars')
 const app = express()
-
 const PORT = 3000
+
+// setting template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 // route
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.render('index')
 })
 
 // port
