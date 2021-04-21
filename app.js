@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 const urlShortener = require('./models/urlShortener')
 const app = express()
 const PORT = process.env.PORT || 3000
+const standardURL = process.env.Basic_Url || `http://localhost:${PORT}/`
 
 // setting monbDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/urlShortener'
@@ -69,7 +70,7 @@ app.post('/shortenURL', (req, res) => {
           }
         }
 
-        const outputURL = `http://localhost:${PORT}/${randomString}`
+        const outputURL = standardURL + randomString
 
         return urlShortener.create({ inputURL: inputURL, outputURL: randomString })
           .then(() => res.render('index', { inputURL: inputURL, outputURL: outputURL }))
