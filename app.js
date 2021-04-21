@@ -58,6 +58,19 @@ app.post('/shortenURL', (req, res) => {
     })
 })
 
+// redirect
+app.get('/:outputURL', (req, res) => {
+  const shortenedURL = req.params.outputURL
+  urlShortener.find({ outputURL: shortenedURL })
+    .lean()
+    .then((link) => {
+      if (link) {
+        res.redirect(link[0].inputURL)
+      }
+    })
+    .catch(error => console.log(error))
+})
+
 // port
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
