@@ -8,11 +8,13 @@ const mongoose = require('mongoose')
 const urlShortener = require('./models/urlShortener')
 const app = express()
 const PORT = process.env.PORT || 3000
-const standardURL = process.env.Basic_Url || `http://localhost:${PORT}/`
 
 // setting monbDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/urlShortener'
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+require('dotenv').config()
+const standardURL = process.env.Basic_Url || `http://localhost:${PORT}/`
 
 const db = mongoose.connection
 db.on('error', () => {
