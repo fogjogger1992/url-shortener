@@ -18,6 +18,16 @@
 <body style="height: 100vh; width: 100%; margin: 0; background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);">
   {{{ body }}}
 
+  <script>
+    function copyToClipboard() {
+      const copyText = document.getElementById("outputURL")
+      copyText.select()
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy")
+      alert("Copied the text: " + copyText.value)
+    }
+  </script>
+
   <!-- scripts for loading bootstrap related libraries -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

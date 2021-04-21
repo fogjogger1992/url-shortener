@@ -24,10 +24,10 @@
 
       <div class="form-group p-1 bg-light rounded rounded-pill shadow-sm mb-4">
         <div class="input-group">
-          <input type="url" placeholder="You'll get a shortened URL here..." value="{{ outputURL }}"
+          <input type="url" placeholder="You'll get a shortened URL here..." value="{{ outputURL }}" id="outputURL"
             class="form-control border-0 bg-light" disabled>
           <div class="input-group-append">
-            <button type="submit" class="btn btn-link-dark"><i class="fas fa-clipboard"></i></button>
+            <button onclick="copyToClipboard()" class="btn btn-link-dark"><i class="fas fa-clipboard"></i></button>
           </div>
         </div>
       </div>
