@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
     "mongoose": "^5.12.5",
-    "secure-random-password": "^0.2.2"
+    "secure-random-password": "^0.2.2",
+    "valid-url": "^1.0.9"
   }
 }
