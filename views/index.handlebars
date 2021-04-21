@@ -5,10 +5,11 @@
         <h3>URL Shortener</h3>
       </div>
 
-      <form action="">
+      <form action="/shortenURL" method="POST">
         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
           <div class="input-group">
-            <input type="url" placeholder="Input URL here..." class="form-control border-0 bg-light" required>
+            <input name="inputURL" type="url" placeholder="Input URL here..." value="{{ inputURL }}"
+              class="form-control border-0 bg-light" required>
             <div class="input-group-submit">
               <button type="submit" class="btn btn-link-dark"><i class="fas fa-greater-than"></i></button>
             </div>
@@ -18,8 +19,8 @@
 
       <div class="form-group p-1 bg-light rounded rounded-pill shadow-sm mb-4">
         <div class="input-group">
-          <input type="url" placeholder="You'll get a shortened URL here..." class="form-control border-0 bg-light"
-            disabled>
+          <input type="url" placeholder="You'll get a shortened URL here..." value="{{ outputURL }}"
+            class="form-control border-0 bg-light" disabled>
           <div class="input-group-append">
             <button type="submit" class="btn btn-link-dark"><i class="fas fa-clipboard"></i></button>
           </div>
