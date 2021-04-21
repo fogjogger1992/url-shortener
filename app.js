@@ -7,10 +7,12 @@ const validUrl = require('valid-url')
 const mongoose = require('mongoose')
 const urlShortener = require('./models/urlShortener')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // setting monbDB connection
-mongoose.connect('mongodb://localhost/url-shortener', { useNewUrlParser: true, useUnifiedTopology: true })
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/urlShortener'
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+
 const db = mongoose.connection
 db.on('error', () => {
   console.log('mongodb error!')
